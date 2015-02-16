@@ -18,6 +18,31 @@
         background-repeat: no-repeat;
         background-position: left center;
         padding-left: 45px;
+        margin-left: 10px;
+      }
+
+      .header #addHichhike {
+        margin-right: 30px;
+      }
+
+      #aboutSection {
+        top: 50px;
+        right: 0;
+        left: 0;
+        position: absolute;
+      }
+
+      #bottomActions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background-color: black;
+      }
+
+      #bottomActions #addHichhike {
+        margin-top: 7px;
       }
     </style>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,24 +57,54 @@
 
   <body>
     <div id="map-canvas"></div>
-
     <nav class="navbar navbar-inverse header navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-brand logo" href="#">
-          Hitchhike GPS
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand logo" href="#">
+            Hitchhike GPS
+          </div>
         </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <button type="button" id="addHichhike" class="btn btn-success navbar-btn">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              Add hitchhike!
-            </button>
-          </li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-
-      </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="hidden-xs">
+              <button type="button" id="addHichhike" class="btn btn-success navbar-btn">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add hitchhike!
+              </button>
+            </li>
+            <li>
+              <a data-toggle="collapse" href="#howItWorks" aria-expanded="false" aria-controls="howItWorks">How it works?</a>
+            </li>
+            <li>
+              <a data-toggle="collapse" href="#aboutSection" aria-expanded="false" aria-controls="aboutSection">About</a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
     </nav>
+
+    <div class="collapse" id="aboutSection">
+      <div class="well text-center">
+        <h1>Hitchhike GPS</h1>
+        <p class="lead">Hitchhike-GPS is an opensource collaborative project.</p>
+        <p class="lead">When travelling and being carried doing hitchhike on the road, add it on the web app.
+
+          This way we can calculate the bests roads and places for a backapacker to hitchhike!</p>
+      </div>
+    </div>
+
+    <div class="visible-xs text-center" id="bottomActions">
+      <button type="button" id="addHichhike" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add hitchhike!
+      </button>
+    </div>
   </body>
 </html>
