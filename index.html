@@ -2,21 +2,43 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>GPS Mochilero</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hitchhike GPS</title>
     <style>
       html, body, #map-canvas {
         height: 100%;
         margin: 0px;
         padding: 0px
       }
+
+      .header div.logo {
+        color: white;
+        background-image: url("img/logo-32x32.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 45px;
+      }
     </style>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore-min.js"></script>
-    <script src="mochilero.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="hitchhikeGPS.js"></script>
+
   </head>
 
   <body>
     <div id="map-canvas"></div>
+
+    <nav class="navbar navbar-inverse header navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-brand logo" href="#">
+          Hitchhike GPS
+        </div>
+      </div>
+    </nav>
   </body>
 </html>

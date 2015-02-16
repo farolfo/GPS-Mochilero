@@ -12,9 +12,11 @@ function initialize() {
 
 function initializeMap(hitchs) {
   var mapOptions = {
-    zoom: 13,
+    zoom: 2,
     center: new google.maps.LatLng(37.774546, -122.433523),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: true,
+    zoomControl: true
   };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
