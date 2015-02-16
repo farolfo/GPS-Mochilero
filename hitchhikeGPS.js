@@ -34,10 +34,9 @@ function allowActions() {
     $.ajax({
       url:"https://mochilero-api.herokuapp.com/hitchs",
       type:"POST",
-      data: reqBody,
+      data: JSON.stringify(reqBody),
       contentType:"application/json",
-      processData: false,
-      success: function(){
+      success: function() {
         console.log('successfully saved');
       }
     });
