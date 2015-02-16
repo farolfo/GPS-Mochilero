@@ -1,19 +1,44 @@
 "use strict";
 
-var map, pointarray, heatmap;
+var map, pointarray, heatmap, currentPosition;
 
 function initialize() {
-  $.get("https://mochilero-api.herokuapp.com/hitchs", function( data ) {
-    initializeMap(_.map(data, function(hitch) {
-      return new google.maps.LatLng(hitch.lat, hitch.long);
-    }));
+
+  if(!navigator.geolocation) {
+    window.location.assign("error.html?geolocationFailed=true");
+    return;
+  }
+
+  //gets the curret position
+  navigator.geolocation.getCurrentPosition(function(position) {
+
+    currentPosition = position;
+
+    // fetch hitchs
+    $.get("https://mochilero-api.herokuapp.com/hitchs", function( data ) {
+      initializeMap(_.map(data, function(hitch) {
+        return new google.maps.LatLng(hitch.lat, hitch.long);
+      }));
+      allowActions();
+    });
+  });
+}
+
+function allowActions() {
+  $('#addHichhike').click(function() {
+    var reqBody = {
+      lat: currentPosition.coords.latitude,
+      long: currentPosition.coords.longitude
+    };
+
+    console.log('Sending ' + JSON.stringify(reqBody));
   });
 }
 
 function initializeMap(hitchs) {
   var mapOptions = {
     zoom: 2,
-    center: new google.maps.LatLng(37.774546, -122.433523),
+    center: new google.maps.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     disableDefaultUI: true,
     zoomControl: true
