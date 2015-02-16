@@ -31,10 +31,16 @@ function allowActions() {
       long: currentPosition.coords.longitude
     };
 
-    $.post("https://mochilero-api.herokuapp.com/hitchs", reqBody,
-      function() {
+    $.ajax({
+      url:"https://mochilero-api.herokuapp.com/hitchs",
+      type:"POST",
+      data:reqBody,
+      contentType:"application/json; charset=utf-8",
+      dataType:"json",
+      success: function(){
         console.log('successfully saved');
-      }, "json");
+      }
+    });
   });
 }
 
