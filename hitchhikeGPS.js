@@ -35,7 +35,7 @@ function allowActions() {
       url:"https://mochilero-api.herokuapp.com/hitchs",
       type:"POST",
       data:reqBody,
-      contentType:"application/json; charset=utf-8",
+      contentType:"application/json",
       dataType:"json",
       success: function(){
         console.log('successfully saved');
