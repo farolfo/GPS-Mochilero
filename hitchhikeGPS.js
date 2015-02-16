@@ -31,13 +31,16 @@ function allowActions() {
       long: currentPosition.coords.longitude
     };
 
-    console.log('Sending ' + JSON.stringify(reqBody));
+    $.post("https://mochilero-api.herokuapp.com/hitchs", reqBody,
+      function() {
+        console.log('successfully saved');
+      }, "json");
   });
 }
 
 function initializeMap(hitchs) {
   var mapOptions = {
-    zoom: 2,
+    zoom: 5,
     center: new google.maps.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     disableDefaultUI: true,
