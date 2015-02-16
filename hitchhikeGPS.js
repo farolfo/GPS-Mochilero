@@ -27,8 +27,8 @@ function initialize() {
 function allowActions() {
   $('#addHichhike').click(function() {
     var reqBody = {
-      lat: currentPosition.coords.latitude,
-      long: currentPosition.coords.longitude
+      "lat": currentPosition.coords.latitude,
+      "long": currentPosition.coords.longitude
     };
 
     $.ajax({
