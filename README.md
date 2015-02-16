@@ -1,6 +1,6 @@
 # GPS Mochilero
 
-An open-source project to display hitchs of backpackers on live. Check it out at https://farolfo.github.io/mochilero-ui.
+An open-source project to display hitchs of backpackers on live. Check it out at https://farolfo.github.io/GPS-Mochilero.
 
 _GPS Mochilero_ is a collaborative project. When travelling and being carried doing hitch on the road, mark it on the web app. This way we can calculate the bests roads and places for a backapacker to hitch!
 
