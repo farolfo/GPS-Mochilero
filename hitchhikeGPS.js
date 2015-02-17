@@ -25,7 +25,7 @@ function initialize() {
 }
 
 function allowActions() {
-  $('#addHichhike').click(function() {
+  /*$('#addHichhike').click(function() {
     var reqBody = {
       "lat": currentPosition.coords.latitude,
       "long": currentPosition.coords.longitude
@@ -40,7 +40,7 @@ function allowActions() {
         console.log('successfully saved');
       }
     });
-  });
+  });*/
 }
 
 function initializeMap(hitchs) {
