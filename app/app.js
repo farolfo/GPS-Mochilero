@@ -14,7 +14,7 @@ angular.module('hitchhikeGPS', [
 ]);
 
 angular.module('hitchhikeGPS').config(function ($urlRouterProvider, $stateProvider) {
-  $urlRouterProvider.when('', '/home');
+  $urlRouterProvider.when('', '/hitchs');
 
   $stateProvider
         .state('home', {
