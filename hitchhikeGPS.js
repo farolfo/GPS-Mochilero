@@ -1,6 +1,6 @@
 "use strict";
 
-var map, pointarray, heatmap, currentPosition;
+var map, pointarray, heatmap, currentPosition, bootstrapAlert;
 
 function initialize() {
 
@@ -8,6 +8,59 @@ function initialize() {
     window.location.assign("error.html?geolocationFailed=true");
     return;
   }
+
+  bootstrapAlert = function() {};
+  bootstrapAlert.success = function(message) {
+      $('#alertPlaceholder').html('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>');
+  }
+  bootstrapAlert.error = function(message) {
+      $('#alertPlaceholder').html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>');
+  }
+
+  $('.confirm-add-hitchhike').click(function() {
+    var reqBody = {
+      "lat": currentPosition.coords.latitude,
+      "long": currentPosition.coords.longitude
+    };
+
+    $.ajax({
+      url:"https://mochilero-api.herokuapp.com/hitchs",
+      type:"POST",
+      data: JSON.stringify(reqBody),
+      contentType:"application/json",
+      success: function() {
+        $('#addHitchhikeConfirm').modal('toggle');
+        bootstrapAlert.success('Hitchhike location saved! Thanks for contributing!');
+      },
+      error: function() {
+        $('#addHitchhikeConfirm').modal('toggle');
+        bootstrapAlert.success('There was an error while saving the location');
+      }
+    });
+  });
+
+  $('#addHitchhikeConfirm').on('shown.bs.modal', function () {
+    if(!navigator.geolocation) {
+      $('.getting-geolocation').hide();
+      $('.geolocation-failed').show();
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+      currentPosition = position;
+
+      $('.getting-geolocation').hide();
+      $('.geolocation-succeded').show();
+      //$('.confirm-add-hitchhike').enable();
+    });
+  });
+
+  $('#addHitchhikeConfirm').on('hidden.bs.modal', function () {
+    $('.getting-geolocation').show();
+    $('.geolocation-failed').hide();
+    $('.geolocation-succeded').hide();
+    //$('.confirm-add-hitchhike').disable();
+  });
 
   //gets the curret position
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -25,22 +78,7 @@ function initialize() {
 }
 
 function allowActions() {
-  /*$('#addHichhike').click(function() {
-    var reqBody = {
-      "lat": currentPosition.coords.latitude,
-      "long": currentPosition.coords.longitude
-    };
-
-    $.ajax({
-      url:"https://mochilero-api.herokuapp.com/hitchs",
-      type:"POST",
-      data: JSON.stringify(reqBody),
-      contentType:"application/json",
-      success: function() {
-        console.log('successfully saved');
-      }
-    });
-  });*/
+  //$('#addHichhike').enable();
 }
 
 function initializeMap(hitchs) {
