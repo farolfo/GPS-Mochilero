@@ -6,6 +6,6 @@ _Hitchhike-GPS_ is a collaborative project. When travelling and being carried do
 
 ## Application overview
 
-The UI is pure javascript for now, using jQuery, underscore and google maps to deliver the data to the user as a heath map.
+The UI is an AngularJS project, using jQuery, underscore and google maps to deliver the data to the user as a heath map.
 
 The API code is in [this Github repo](https://github.com/farolfo/mochilero-api) and hosted on heroku.
