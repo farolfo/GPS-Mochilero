@@ -29,7 +29,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="navbar-brand logo" href="#">
+        <div class="navbar-brand logo" ui-sref="home">
           Hitchhike GPS
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden-xs">
-            <button type="button" id="addHichhike" class="btn btn-success navbar-btn" ng-click="openHitchhikeModal();">
+            <button type="button" class="btn btn-success navbar-btn addHichhike" ng-click="openHitchhikeModal();">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
               Add hitchhike!
             </button>
@@ -66,13 +66,13 @@
   <div ui-view class="main-view"></div>
 
   <div class="visible-xs text-center" id="bottomActions">
-    <button type="button" id="addHichhike" class="btn btn-success btn-lg" ng-click="openHitchhikeModal();">
+    <button type="button" class="btn btn-success btn-lg addHichhike" ng-click="openHitchhikeModal();">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       Add hitchhike!
     </button>
   </div>
 
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization,places&sensor=false"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -81,6 +81,8 @@
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script src="bower_components/underscore/underscore-min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="libs/ngAutocomplete.js"></script>
 
   <script src="app.js"></script>
 

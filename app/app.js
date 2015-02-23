@@ -10,11 +10,12 @@ angular.module('hitchhikeGPS', [
   'ui.bootstrap',
   'hitchhikeGPS.controllers',
   'hitchhikeGPS.services',
-  'hitchhikeGPS.directives'
+  'hitchhikeGPS.directives',
+  'ngAutocomplete'
 ]);
 
 angular.module('hitchhikeGPS').config(function ($urlRouterProvider, $stateProvider) {
-  $urlRouterProvider.when('', '/hitchs');
+  $urlRouterProvider.when('', '/home');
 
   $stateProvider
         .state('home', {
@@ -24,7 +25,7 @@ angular.module('hitchhikeGPS').config(function ($urlRouterProvider, $stateProvid
           })
 
         .state('hitchs', {
-            url: '/hitchs',
+            url: '/hitchs?lat&long',
             templateUrl: 'hitchs/hitchs.html',
             controller: 'HitchsCtrl'
         });

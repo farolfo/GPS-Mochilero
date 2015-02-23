@@ -11,9 +11,10 @@ html, body, #map-canvas, .main-view {
   background-position: left center;
   padding-left: 45px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
-.header #addHichhike {
+.header .addHichhike {
   margin-right: 30px;
 }
 
@@ -33,7 +34,7 @@ html, body, #map-canvas, .main-view {
   background-color: black;
 }
 
-#bottomActions #addHichhike {
+#bottomActions .addHichhike {
   margin-top: 14px;
 }
 
@@ -101,4 +102,26 @@ button:focus {
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
   }
+}
+
+.home-main {
+    height: 100%;
+    width: 100%;
+    /* background-color: rgb(228, 236, 228); */
+    background:  url("img/wall1.jpeg") no-repeat center;
+    background-size: cover;
+}
+
+.home-main .brand-big {
+    padding-top: 130px;
+}
+
+.home-main .search-main {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.home-main .search-main input {
+    width: 100%;
 }

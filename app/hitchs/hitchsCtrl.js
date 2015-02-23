@@ -2,18 +2,10 @@
 
 angular.module('hitchhikeGPS.controllers')
 
-.controller('HitchsCtrl', ['$scope', 'hitchs', function($scope, hitchs) {
+.controller('HitchsCtrl', ['$scope', '$stateParams', '$state', 'hitchs', function($scope, $stateParams, $state, hitchs) {
 
-  var DEFAULT_POSITION = {
-
-  };
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      $scope.updateHitchs(position);
-    });
-  } else {
-    $scope.updateHitchs(DEFAULT_POSITION);
+  if ( ! $stateParams.lat || ! $stateParams.long ) {
+      $state.go('home');
   }
 
   /**
@@ -29,8 +21,8 @@ angular.module('hitchhikeGPS.controllers')
 
   $scope.initializeMap = function(position) {
     var mapOptions = {
-      zoom: 5,
-      center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+      zoom: 10,
+      center: new google.maps.LatLng(position.lat, position.long),
       mapTypeControlOptions: {
         mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
       },
@@ -55,7 +47,7 @@ angular.module('hitchhikeGPS.controllers')
 
     $scope.map.mapTypes.set('map_style', styledMap);
     $scope.map.setMapTypeId('map_style');
-  }
+  };
 
   $scope.updateHeatMap = function(sample, position) {
     if (! $scope.map ) {
@@ -70,4 +62,10 @@ angular.module('hitchhikeGPS.controllers')
     heatmap.set('radius', 25);
     heatmap.setMap($scope.map);
   };
+
+
+    $scope.updateHitchs({
+        lat: $stateParams.lat,
+        long: $stateParams.long
+    });
 }]);
