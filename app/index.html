@@ -36,7 +36,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li class="hidden-xs">
+          <li class="hidden-xs" ng-if="$state.is('hitchs')">
             <button type="button" class="btn btn-success navbar-btn addHichhike" ng-click="openHitchhikeModal();">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
               Add hitchhike!
@@ -59,13 +59,13 @@
       <p class="lead">Hitchhike-GPS is an opensource collaborative project.</p>
       <p class="lead">When travelling and being carried doing hitchhike on the road, add it on the web app.
 
-        This way we can calculate the bests roads and places for a backapacker to hitchhike!</p>
+        This way we can calculate the best places for a backapacker to hitchhike!</p>
     </div>
   </div>
 
   <div ui-view class="main-view"></div>
 
-  <div class="visible-xs text-center" id="bottomActions">
+  <div class="visible-xs text-center" ng-if="$state.is('hitchs')" id="bottomActions">
     <button type="button" class="btn btn-success btn-lg addHichhike" ng-click="openHitchhikeModal();">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       Add hitchhike!
